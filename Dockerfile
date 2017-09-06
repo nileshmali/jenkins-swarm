@@ -19,10 +19,10 @@ ENV JENKINS_SWARM_VERSION 3.4
 RUN curl -O https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/$JENKINS_SWARM_VERSION/swarm-client-$JENKINS_SWARM_VERSION.jar
 
 COPY cmd.sh /cmd.sh
+COPY dockerd-entrypoint.sh /dockerd-entrypoint.sh
 
 RUN chmod +x /cmd.sh
+RUN chmod +x /dockerd-entrypoint.sh
 
-COPY dockerd-entrypoint.sh /usr/local/bin/
-
-ENTRYPOINT ["dockerd-entrypoint.sh"]
+ENTRYPOINT ["/dockerd-entrypoint.sh"]
 CMD ["/cmd.sh"]
