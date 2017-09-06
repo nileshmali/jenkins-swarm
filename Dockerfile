@@ -24,5 +24,5 @@ COPY dockerd-entrypoint.sh /dockerd-entrypoint.sh
 RUN chmod +x /cmd.sh
 RUN chmod +x /dockerd-entrypoint.sh
 
-ENTRYPOINT ["/dockerd-entrypoint.sh"]
+ENTRYPOINT ["/dockerd-entrypoint.sh", "dockerd", "--storage-driver=vfs"]
 CMD ["/cmd.sh"]
