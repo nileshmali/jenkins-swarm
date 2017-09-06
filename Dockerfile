@@ -1,4 +1,4 @@
-FROM docker:stable
+FROM docker:stable-dind
 
 USER root
 
