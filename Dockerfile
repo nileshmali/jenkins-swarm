@@ -18,4 +18,8 @@ ENV JENKINS_SWARM_VERSION 3.4
 # Browse all versions here: https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/
 RUN curl -O https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/$JENKINS_SWARM_VERSION/swarm-client-$JENKINS_SWARM_VERSION.jar
 
-CMD ["java", "-jar", "swarm-client-$JENKINS_SWARM_VERSION.jar", "-master", "http://jenkins:8080", "-username", "$JENKINS_USERNAME", "-password", "$JENKINS_PASSWORD", "-sslFingerprints", "", "-fsroot" "/workspace"]
+COPY cmd.sh /cmd.sh
+
+RUN chmod +x /cmd.sh
+
+CMD ["/cmd.sh"]

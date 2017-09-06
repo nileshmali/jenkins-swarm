@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# jenkins swarm slave
-JAR=`ls -1 $HOME/swarm-client-*.jar | tail -n 1`
-
 PARAMS=""
 if [ ! -z "$JENKINS_USERNAME" ]; then
   PARAMS="$PARAMS -username $JENKINS_USERNAME"
@@ -28,4 +25,4 @@ else
   fi
 fi
 
-java -jar $JAR $PARAMS -sslFingerprints "" -fsroot $HOME
+java -jar swarm-client-$JENKINS_SWARM_VERSION.jar $PARAMS -sslFingerprints "" -fsroot /workspace
