@@ -22,4 +22,7 @@ COPY cmd.sh /cmd.sh
 
 RUN chmod +x /cmd.sh
 
+COPY dockerd-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["dockerd-entrypoint.sh"]
 CMD ["/cmd.sh"]
