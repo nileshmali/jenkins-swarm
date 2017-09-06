@@ -20,4 +20,4 @@ RUN curl -O https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-cl
 
 COPY cmd.sh /cmd.sh
 
-CMD ["cmd.sh"]
+CMD ["/bin/bash", "/cmd.sh"]
