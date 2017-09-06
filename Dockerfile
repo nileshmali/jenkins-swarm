@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM docker:stable
 
 USER root
 
@@ -6,7 +6,7 @@ RUN apk update && \
 	apk upgrade && \
 	apk add curl && \
 	apk add git && \
-	apk add docker
+  apk add openjdk8
 
 # Create workspace directory for Jenkins
 RUN mkdir /workspace && \
