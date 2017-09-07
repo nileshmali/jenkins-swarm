@@ -25,4 +25,6 @@ else
   fi
 fi
 
+dockerd --storage-driver vfs &
+
 java -jar swarm-client-$JENKINS_SWARM_VERSION.jar $PARAMS -sslFingerprints "" -fsroot /workspace
